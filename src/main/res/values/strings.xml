@@ -5,4 +5,6 @@
     <string name="my_tasks">My tasks</string>
     <string name="new_list">+New list</string>
     <string name="add_task">Add task</string>
+    <string name="new_task">New task</string>
+    <string name="date">Date</string>
 </resources>

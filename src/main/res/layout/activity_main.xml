@@ -76,7 +76,8 @@
         android:textSize="20sp"
         app:backgroundTint="#FFFFFF"
         app:backgroundTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
 
 

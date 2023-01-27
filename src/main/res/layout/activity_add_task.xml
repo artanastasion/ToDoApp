@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTaskActivity"
+    android:background="#F5FFFA">
+
+    <TextView
+        android:id="@+id/tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:background="@color/LightCyan"
+        android:padding="10dp"
+        android:text="@string/add_task"
+        android:textSize="28sp"
+        android:textColor="@color/green_teal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/new_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/new_task"
+        android:layout_margin="10dp"
+        android:minHeight="60dp"
+        android:textSize="24sp"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/Aqua"
+        app:layout_constraintTop_toBottomOf="@id/tasks"
+        tools:ignore="TextContrastCheck"
+        android:autofillHints="task" />
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/Aqua"
+        android:layout_margin="15dp"
+        android:minHeight="60dp"
+        android:textSize="24sp"
+        android:text="@string/date"
+        app:layout_constraintTop_toBottomOf="@id/new_task" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
