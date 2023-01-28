@@ -1,84 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#F5FFFA">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tasks"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:background="@color/LightCyan"
-        android:padding="10dp"
-        android:text="@string/tasks"
-        android:textSize="28sp"
-        android:textColor="@color/green_teal"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <ToggleButton
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:textOn="@string/star"
-        android:textOff="@string/star"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@color/Aqua"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/tasks" />
-
-    <ToggleButton
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="#00838F"
-        android:textOff="@string/my_tasks"
-        android:textOn="@string/my_tasks"
-        android:textSize="17sp"
-        app:layout_constraintLeft_toRightOf="@id/textView1"
-        app:layout_constraintRight_toLeftOf="@id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/tasks" />
-
-    <ToggleButton
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="#00838F"
-        android:textOff="@string/new_list"
-        android:textOn="@string/new_list"
-        android:textSize="17sp"
-        app:layout_constraintLeft_toRightOf="@id/textView2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tasks" />
-
-    <Button
-        android:id="@+id/add_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/Aqua"
-        android:padding="10dp"
-        android:text="@string/add_task"
-        android:textAlignment="center"
-        android:textColor="#37474F"
-        android:textSize="20sp"
-        app:backgroundTint="#FFFFFF"
-        app:backgroundTintMode="multiply"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="UsingOnClickInXml" />
 
-
+        app:navGraph="@navigation/nav_graph"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
