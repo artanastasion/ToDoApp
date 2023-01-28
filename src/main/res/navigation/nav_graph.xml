@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.myapplication.screens.add.AddTaskFragment"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskListFragment"
+        android:name="com.example.myapplication.screens.add.AddTaskListFragment"
+        android:label="fragment_add_task_list"
+        tools:layout="@layout/fragment_add_task_list" >
+        <action
+            android:id="@+id/action_addTaskListFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTaskFragment"
+        android:name="com.example.myapplication.screens.detail.DetailTaskFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailTaskFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTaskListFragment"
+        android:name="com.example.myapplication.screens.detail.DetailTaskListFragment"
+        android:label="fragment_detail_task_list"
+        tools:layout="@layout/fragment_detail_task_list" >
+        <action
+            android:id="@+id/action_detailTaskListFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.myapplication.screens.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_addTaskListFragment"
+            app:destination="@id/addTaskListFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_detailTaskFragment"
+            app:destination="@id/detailTaskFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_detailTaskListFragment"
+            app:destination="@id/detailTaskListFragment" />
+    </fragment>
+</navigation>
