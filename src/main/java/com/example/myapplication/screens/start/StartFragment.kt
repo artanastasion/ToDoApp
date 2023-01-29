@@ -5,17 +5,59 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.APP
 import com.example.myapplication.R
+import com.example.myapplication.adapter.TaskAdapter
+import com.example.myapplication.databinding.FragmentStartBinding
+import com.example.myapplication.model.TaskListModel
+import com.example.myapplication.model.TaskModel
 
 
 class StartFragment : Fragment() {
 
+    lateinit var binding: FragmentStartBinding
+    lateinit var recyclerView: RecyclerView
+    lateinit var adapterTask: TaskAdapter
+    //lateinit var adapterList: TaskListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false)
+        binding = FragmentStartBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+    }
+
+    private fun init() {
+        val viewModel = ViewModelProvider(this).get(StartViewModel::class.java)
+        viewModel.initDatabase()
+        recyclerView = binding.rvTasks
+        adapterTask = TaskAdapter()
+        recyclerView.adapter = adapterTask
+        viewModel.getAllTasks().observe(viewLifecycleOwner,{listTasks ->
+            adapterTask.setListTasks(listTasks.asReversed())
+        })
+
+        binding.btnAdd.setOnClickListener{
+            APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment)
+        }
+    }
+
+    companion object{
+        fun clickedTask(taskModel: TaskModel){
+            val bundle = Bundle()
+            bundle.putSerializable("task", taskModel)
+            APP.navController.navigate(R.id.action_startFragment_to_detailTaskFragment, bundle)
+        }
+
+    }
+
+
 }

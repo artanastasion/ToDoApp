@@ -13,7 +13,7 @@ import com.example.myapplication.model.TaskModel
 interface TaskDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(taskModel: TaskModel)
+    suspend fun insert(taskModel: TaskModel): Long
 
     @Delete
     suspend fun delete(taskModel: TaskModel)

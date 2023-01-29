@@ -18,7 +18,7 @@
         android:contentDescription="@string/backpage" />
 
     <Button
-        android:id="@+id/btn_delete"
+        android:id="@+id/btn_addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
@@ -34,12 +34,12 @@
 
     <EditText
         android:id="@+id/title_detail"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/tasks"
+        android:hint="@string/tasks"
         android:textSize="26sp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_back"/>
 
@@ -49,21 +49,22 @@
         android:layout_height="wrap_content"
         android:button="@drawable/favorites_check_box"
         android:checked="false"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="9dp"
         android:theme="@style/CheckboxStyle"
-        app:layout_constraintStart_toEndOf="@+id/title_detail"
-        app:layout_constraintTop_toBottomOf="@+id/btn_delete"
+        app:layout_constraintEnd_toStartOf="@+id/title_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
         tools:ignore="RtlSymmetry,UnknownIdInLayout,UsingOnClickInXml" />
 
     <EditText
         android:id="@+id/discribtion_detail"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textColor="#5C5C5C"
-        android:text="@string/add_details"
+        android:hint="@string/add_details"
         android:textSize="19sp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_detail"/>
 
@@ -75,7 +76,7 @@
         android:textColor="#5C5C5C"
         android:text="@string/add_date"
         android:textSize="19sp"
-        android:layout_marginStart="33dp"
+        android:layout_marginStart="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/discribtion_detail"/>
 

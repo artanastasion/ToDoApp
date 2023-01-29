@@ -10,6 +10,7 @@ import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.android.synthetic.main.list_title.view.*
 
 class TaskListAdapter: RecyclerView.Adapter<TaskListAdapter.TaskListViewHolder>() {
 
@@ -23,7 +24,7 @@ class TaskListAdapter: RecyclerView.Adapter<TaskListAdapter.TaskListViewHolder>(
     }
 
     override fun onBindViewHolder(holder: TaskListAdapter.TaskListViewHolder, position: Int) {
-        holder.itemView.title_list_detail.text = listLists[position].title
+        holder.itemView.title_task.text = listLists[position].title
     }
 
     override fun getItemCount(): Int {
