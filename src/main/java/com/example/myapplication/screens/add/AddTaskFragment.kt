@@ -11,13 +11,15 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAddTaskBinding
 import com.example.myapplication.model.TaskModel
 
-class AddTaskFragment : Fragment() {
+class AddTaskFragment : Fragment(){
 
     lateinit var binding: FragmentAddTaskBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
     ): View? {
         binding = FragmentAddTaskBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -30,15 +32,24 @@ class AddTaskFragment : Fragment() {
 
     private fun init() {
         val viewModel = ViewModelProvider(this).get(AddTaskViewModel::class.java)
-        binding.btnAddTask.setOnClickListener{
+        binding.btnAddTask.setOnClickListener {
             val title = binding.titleDetail.text.toString()
             val discribtion = binding.discribtionDetail.text.toString()
             val favourite = binding.favorites.isChecked
-            viewModel.insert(TaskModel(title = title, discription = discribtion, date = 12, completed = false, favorite = favourite, list = 0)){}
+            viewModel.insert(
+                TaskModel(
+                    title = title,
+                    discription = discribtion,
+                    date = 12,
+                    completed = false,
+                    favorite = favourite,
+                    list = 0
+                )
+            ) {}
             APP.navController.navigate(R.id.action_addTaskFragment_to_startFragment)
 
         }
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             APP.navController.navigate(R.id.action_addTaskFragment_to_startFragment)
         }
     }

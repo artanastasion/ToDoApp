@@ -36,6 +36,7 @@ class DetailTaskFragment : Fragment() {
 
     private fun init() {
         val viewModel = ViewModelProvider(this).get(DetailTaskViewModel::class.java)
+        binding.favorites.isChecked = currentTask.favorite
         binding.titleDetail.setText(currentTask.title)
         binding.discribtionDetail.setText(currentTask.discription)
 

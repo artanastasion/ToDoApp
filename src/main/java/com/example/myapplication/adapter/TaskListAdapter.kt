@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
+import com.example.myapplication.screens.start.StartFragment
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.item_layout.view.*
 import kotlinx.android.synthetic.main.list_title.view.*
@@ -18,13 +19,13 @@ class TaskListAdapter: RecyclerView.Adapter<TaskListAdapter.TaskListViewHolder>(
 
     class TaskListViewHolder(view: View): RecyclerView.ViewHolder(view)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskListAdapter.TaskListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return TaskListAdapter.TaskListViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskListViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_title, parent, false)
+        return TaskListViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TaskListAdapter.TaskListViewHolder, position: Int) {
-        holder.itemView.title_task.text = listLists[position].title
+    override fun onBindViewHolder(holder: TaskListViewHolder, position: Int) {
+        holder.itemView.title_list.text = listLists[position].title
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +36,18 @@ class TaskListAdapter: RecyclerView.Adapter<TaskListAdapter.TaskListViewHolder>(
     fun setList(list: List<TaskListModel>){
         listLists = list
         notifyDataSetChanged()
+    }
+
+    override fun onViewAttachedToWindow(holder: TaskListViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        holder.itemView.setOnClickListener{
+            StartFragment.clickedList(listLists[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: TaskListViewHolder) {
+        holder.itemView.setOnClickListener(null)
+
     }
 
 }

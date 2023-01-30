@@ -25,4 +25,10 @@ interface TaskDao {
     @Query("SELECT * FROM task_table")
     fun getAllTasks(): LiveData<List<TaskModel>>
 
+    @Query("SELECT * FROM task_table WHERE favorite=1")
+    fun getFavorites(): LiveData<List<TaskModel>>
+
+    @Query("SELECT * FROM task_table WHERE list=:listId")
+    fun getTaskSort(listId: Int): LiveData<List<TaskModel>>
+
 }

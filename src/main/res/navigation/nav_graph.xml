@@ -58,5 +58,16 @@
         <action
             android:id="@+id/action_startFragment_to_detailTaskListFragment"
             app:destination="@id/detailTaskListFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.myapplication.screens.list.ListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
 </navigation>
