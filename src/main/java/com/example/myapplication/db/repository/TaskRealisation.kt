@@ -11,9 +11,10 @@ class TaskRealisation(private val taskDao: TaskDao): TaskRepository {
     override val favoriteTask: LiveData<List<TaskModel>>
         get() = taskDao.getFavorites()
 
-    override suspend fun sortTask(listId: Int) {
-        taskDao.getTaskSort(listId)
+    override fun sortTask(int: Int): LiveData<List<TaskModel>> {
+        return taskDao.getTaskSort(int)
     }
+
 
     override suspend fun insertTask(taskModel: TaskModel, onSuccess: () -> Unit) {
         taskDao.insert(taskModel)
