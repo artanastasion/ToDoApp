@@ -2,14 +2,19 @@ package com.example.myapplication.screens.detail
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.APP
 import com.example.myapplication.R
+import com.example.myapplication.adapter.TaskAdapter
+import com.example.myapplication.adapter.TaskListAdapter
 import com.example.myapplication.databinding.FragmentDetailBinding
+import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
 
 
@@ -39,6 +44,7 @@ class DetailTaskFragment : Fragment() {
         binding.favorites.isChecked = currentTask.favorite
         binding.titleDetail.setText(currentTask.title)
         binding.discribtionDetail.setText(currentTask.discription)
+
 
         binding.btnDelete.setOnClickListener{
             viewModel.delete(currentTask){}
