@@ -8,6 +8,10 @@ class TaskListRealisation(private val taskListDao: TaskListDao) : TaskListReposi
     override val allLists: LiveData<List<TaskListModel>>
         get() = taskListDao.getAllLists()
 
+    override fun getListTitle(int: Int): LiveData<List<TaskListModel>> {
+        return taskListDao.getListTitle(int)
+    }
+
     override suspend fun insertTaskList(taskListModel: TaskListModel, onSuccess: () -> Unit) {
         taskListDao.insert(taskListModel)
         onSuccess()

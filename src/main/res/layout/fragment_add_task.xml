@@ -68,16 +68,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_detail"/>
 
-    <TextView
-        android:id="@id/date_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="#5C5C5C"
-        android:text="@string/add_date"
-        android:textSize="19sp"
-        android:layout_marginStart="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/discribtion_detail"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@ package com.example.myapplication.db.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.myapplication.model.TaskListModel
-import com.example.myapplication.model.TaskModel
 
 @Dao
 interface TaskListDao {
@@ -19,4 +18,7 @@ interface TaskListDao {
 
     @Query("SELECT * FROM taskList_table")
     fun getAllLists(): LiveData<List<TaskListModel>>
+
+    @Query("SELECT * FROM taskList_table WHERE id=:id")
+    fun getListTitle(id: Int): LiveData<List<TaskListModel>>
 }

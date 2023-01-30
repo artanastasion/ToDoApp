@@ -9,7 +9,6 @@ import com.example.myapplication.R
 import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
 import com.example.myapplication.screens.start.StartFragment
-import kotlinx.android.synthetic.main.fragment_add_task.view.*
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
@@ -38,6 +37,7 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         listTask = list
         notifyDataSetChanged()
     }
+
 
     override fun onViewAttachedToWindow(holder: TaskViewHolder) {
         super.onViewAttachedToWindow(holder)

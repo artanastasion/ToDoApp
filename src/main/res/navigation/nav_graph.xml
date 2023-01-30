@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_startFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_sortListFragment"
+            app:destination="@id/sortListFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -69,5 +72,22 @@
         <action
             android:id="@+id/action_listFragment_to_startFragment"
             app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sortListFragment"
+        android:name="com.example.myapplication.screens.list.SortListFragment"
+        android:label="SortListFragment" >
+        <action
+            android:id="@+id/action_sortListFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_sortListFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_sortListFragment_to_detailTaskFragment"
+            app:destination="@id/detailTaskFragment" />
     </fragment>
 </navigation>

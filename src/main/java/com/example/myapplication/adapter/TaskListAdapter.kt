@@ -32,6 +32,7 @@ class TaskListAdapter: RecyclerView.Adapter<TaskListAdapter.TaskListViewHolder>(
         return listLists.size
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list: List<TaskListModel>){
         listLists = list
