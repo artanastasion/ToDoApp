@@ -9,11 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.APP
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentAddTaskBinding
+import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
 
 class AddTaskFragment : Fragment(){
 
     lateinit var binding: FragmentAddTaskBinding
+    lateinit var current: TaskListModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +24,7 @@ class AddTaskFragment : Fragment(){
 
     ): View? {
         binding = FragmentAddTaskBinding.inflate(layoutInflater, container, false)
+        current = arguments?.getSerializable("list") as TaskListModel
         return binding.root
     }
 
@@ -36,6 +39,8 @@ class AddTaskFragment : Fragment(){
             val title = binding.titleDetail.text.toString()
             val discribtion = binding.discribtionDetail.text.toString()
             val favourite = binding.favorites.isChecked
+            val list = current.id
+
             viewModel.insert(
                 TaskModel(
                     title = title,
@@ -43,7 +48,7 @@ class AddTaskFragment : Fragment(){
                     date = 12,
                     completed = false,
                     favorite = favourite,
-                    list = 0
+                    list = list
                 )
             ) {}
             APP.navController.navigate(R.id.action_addTaskFragment_to_startFragment)
