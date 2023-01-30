@@ -1,8 +1,6 @@
 package com.example.myapplication.screens.start
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,8 +14,6 @@ import com.example.myapplication.adapter.TaskListAdapter
 import com.example.myapplication.databinding.FragmentStartBinding
 import com.example.myapplication.model.TaskListModel
 import com.example.myapplication.model.TaskModel
-import com.example.myapplication.screens.detail.DetailTaskViewModel
-import kotlinx.android.synthetic.main.item_layout.view.*
 
 
 class StartFragment : Fragment() {
@@ -59,7 +55,10 @@ class StartFragment : Fragment() {
         })
 
         binding.btnAdd.setOnClickListener{
-            APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment)
+            val _bundle = Bundle()
+            val list_nun = TaskListModel(title = "")
+            _bundle.putSerializable("list", list_nun)
+            APP.navController.navigate(R.id.action_startFragment_to_addTaskFragment, _bundle)
         }
         binding.btnSaveList.setOnClickListener{
             APP.navController.navigate(R.id.action_startFragment_to_addTaskListFragment)
@@ -81,7 +80,7 @@ class StartFragment : Fragment() {
         fun clickedList(taskListModel: TaskListModel){
             val bundle = Bundle()
             bundle.putSerializable("list", taskListModel)
-            APP.navController.navigate(R.id.action_startFragment_to_listFragment, bundle)
+            APP.navController.navigate(R.id.action_startFragment_to_sortListFragment, bundle)
         }
 
     }
